@@ -8,64 +8,117 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
   color: #222;
-  padding: 0;
   min-height: 100vh;
+  /* Add a subtle background pattern image for extra depth */
+  background-image: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
 }
 
 header {
   background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
   color: #fff;
-  padding: 2.5em 1em 1.5em 1em;
+  padding: 3em 1em 2em 1em;
   text-align: center;
-  border-radius: 0 0 24px 24px;
-  margin-bottom: 32px;
-  box-shadow: 0 4px 24px rgba(0, 123, 255, 0.08);
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 32px rgba(0, 123, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative header image */
+header::before {
+  content: "";
+  background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+  opacity: 0.18;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+header > * {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-  font-size: 2.5em;
-  letter-spacing: 1px;
-  margin-bottom: 0.2em;
+  font-size: 2.8em;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.3em;
   color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  font-weight: 800;
 }
 
 h2 {
   color: #007BFF;
-  margin-bottom: 12px;
-  font-size: 1.5em;
+  margin-bottom: 16px;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.hero-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-bottom: 1em;
+  box-shadow: 0 4px 24px rgba(0,123,255,0.15);
 }
 
 section {
-  max-width: 540px;
-  margin: 0 auto 28px auto;
+  max-width: 600px;
+  margin: 0 auto 32px auto;
   padding: 0;
 }
 
 .about, .check-in, .tips {
-  padding: 2em 2em 1.5em 2em;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
-  margin-bottom: 28px;
-  background: #fff;
+  padding: 2.2em 2em 1.7em 2em;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  margin-bottom: 32px;
+  background: #fff url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  background-size: auto;
   transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .about {
-  border-left: 8px solid #ce0a0a;
+  border-left: 10px solid #ce0a0a;
 }
 
 .check-in {
-  border-left: 8px solid #0205af;
+  border-left: 10px solid #0205af;
 }
 
 .tips {
-  border-left: 8px solid #d0f044;
+  border-left: 10px solid #d0f044;
 }
 
+.about::before, .check-in::before, .tips::before {
+  content: "";
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 80px; height: 80px;
+  opacity: 0.08;
+  background: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') center/contain no-repeat;
+}
+.about::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png'); }
+.check-in::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828817.png'); }
+.tips::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png'); }
+
 .about:hover, .check-in:hover, .tips:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 12px 40px rgba(44, 62, 80, 0.18);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact form {
@@ -73,9 +126,12 @@ section {
   flex-direction: column;
   gap: 14px;
   background: #f7f9fc;
-  padding: 1.5em 1em;
+  padding: 1.5em 1.5em;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .contact input, .contact button {
@@ -98,29 +154,42 @@ section {
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+  letter-spacing: 1px;
 }
 
 .contact button:hover {
   background: linear-gradient(90deg, #0056b3 60%, #007BFF 100%);
-  box-shadow: 0 4px 16px rgba(0,123,255,0.12);
+  box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+  transform: translateY(-2px) scale(1.03);
 }
 
 footer {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.1em;
   color: #7a7878;
-  margin-top: 40px;
-  padding: 1.5em 0 1em 0;
+  margin-top: 48px;
+  padding: 2em 0 1.2em 0;
   background: none;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive Design */
+@media (max-width: 900px) {
+  section {
+    max-width: 90vw;
+  }
+  .about, .check-in, .tips {
+    padding: 1.5em 1em 1.2em 1em;
+    font-size: 1em;
+  }
+}
+
 @media (max-width: 700px) {
   header {
-    padding: 2em 0.5em 1em 0.5em;
-    border-radius: 0 0 16px 16px;
+    padding: 2em 0.5em 1.2em 0.5em;
+    border-radius: 0 0 18px 18px;
   }
   h1 {
     font-size: 2em;
@@ -129,6 +198,10 @@ footer {
     max-width: 98vw;
     padding: 1.2em 0.7em 1em 0.7em;
     margin-bottom: 18px;
+  }
+  .hero-img {
+    width: 90px;
+    height: 90px;
   }
 }
 
@@ -156,6 +229,10 @@ footer {
   .contact input, .contact button {
     font-size: 0.98em;
     padding: 8px;
+  }
+  .hero-img {
+    width: 64px;
+    height: 64px;
   }
   footer {
     font-size: 0.9em;
