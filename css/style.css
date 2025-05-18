@@ -5,63 +5,240 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f9fc;
-  color: #333;
-  padding: 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
+  color: #222;
+  min-height: 100vh;
+  /* Add a subtle background pattern image for extra depth */
+  background-image: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
 }
 
 header {
-  background-color: #007BFF;
-  color: white;
-  padding: 1em;
+  background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
+  color: #fff;
+  padding: 3em 1em 2em 1em;
   text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 32px rgba(0, 123, 255, 0.12);
+  position: relative;
+  overflow: hidden;
 }
 
-h1, h2 {
-  color: #ce0a0a;
-  margin-bottom: 10px;
+/* Decorative header image */
+header::before {
+  content: "";
+  background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+  opacity: 0.18;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+header > * {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2.8em;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.3em;
+  color: #fff;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  font-weight: 800;
+}
+
+h2 {
+  color: #007BFF;
+  margin-bottom: 16px;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.hero-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-bottom: 1em;
+  box-shadow: 0 4px 24px rgba(0,123,255,0.15);
+}
+
+section {
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  padding: 0;
+}
+
+.about, .check-in, .tips {
+  padding: 2.2em 2em 1.7em 2em;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+  margin-bottom: 32px;
+  background: #fff url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+  background-size: auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .about {
-  background-color: #ce0a0a;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-left: 10px solid #ce0a0a;
 }
+
 .check-in {
-  background-color: #0205af;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-left: 10px solid #0205af;
 }
+
 .tips {
-  background-color: #d0f044;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-left: 10px solid #d0f044;
 }
+
+.about::before, .check-in::before, .tips::before {
+  content: "";
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 80px; height: 80px;
+  opacity: 0.08;
+  background: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') center/contain no-repeat;
+}
+.about::before { background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png'); }
+.check-in::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828817.png'); }
+.tips::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png'); }
+
+.about:hover, .check-in:hover, .tips:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 12px 40px rgba(44, 62, 80, 0.18);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+  background: #f7f9fc;
+  padding: 1.5em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .contact input, .contact button {
-  padding: 8px;
+  padding: 12px;
   font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.contact input:focus {
+  border: 1.5px solid #007BFF;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+}
+
+.contact button {
+  background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+  letter-spacing: 1px;
+}
+
+.contact button:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007BFF 100%);
+  box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+  transform: translateY(-2px) scale(1.03);
 }
 
 footer {
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1.1em;
   color: #7a7878;
-  margin-top: 30px;
+  margin-top: 48px;
+  padding: 2em 0 1.2em 0;
+  background: none;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  section {
+    max-width: 90vw;
+  }
+  .about, .check-in, .tips {
+    padding: 1.5em 1em 1.2em 1em;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 2em 0.5em 1.2em 0.5em;
+    border-radius: 0 0 18px 18px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  section, .about, .check-in, .tips {
+    max-width: 98vw;
+    padding: 1.2em 0.7em 1em 0.7em;
+    margin-bottom: 18px;
+  }
+  .hero-img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.2em 0.2em 0.7em 0.2em;
+    border-radius: 0 0 8px 8px;
+  }
+  h1 {
+    font-size: 1.3em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+  .about, .check-in, .tips {
+    padding: 0.8em 0.4em 0.7em 0.4em;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.98em;
+  }
+  .contact form {
+    padding: 0.7em 0.2em;
+    gap: 8px;
+  }
+  .contact input, .contact button {
+    font-size: 0.98em;
+    padding: 8px;
+  }
+  .hero-img {
+    width: 64px;
+    height: 64px;
+  }
+  footer {
+    font-size: 0.9em;
+    margin-top: 18px;
+    padding: 1em 0 0.7em 0;
+  }
 }
 
 
