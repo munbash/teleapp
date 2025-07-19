@@ -7,35 +7,113 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <section class="welcome-screen" id="welcome">
+    <div class="welcome-box">
+      <img src="images/clarification.png" alt="TeleApp Logo">
+    <h1>Welcome To TeleApp</h1>
+    <p>Your health our concern. Let's make managing diabetes easier, together.</p>
+    <button id="continue-btn" type="button">Continue</button>
+    </div>
+  </section>
+
+  <section class="main-App" id="app" style="display: none;"></section>
     <header>
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Welcome" class="hero-img">
+      <img src="images/clarification (1).png" alt="Welcome" class="hero-img">
     <h1>TeleApp</h1>
     <p>Supporting Diabetes Management in Rural Communities</p>
   </header>
-  <div class="about">
+
+  <section class="about">
     <h2>About TeleApp</h2>
     <p>
       TeleApp is a simple web application built to help nurses and healthcare workers manage and support diabetic patients in underserved rural areas.
-      This tool offers basic health information, promotes diabetes education, and improves communication between caregivers and patients.
+      This tool offers basic health information, promotes diabetes education, and improves communication between caregivers and patients in rural communities.
     </p>
-  </div>
-  <div class="check-in">
+  </section>
+
+  <section class="log">
+    <h2>Patient Health Log</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Patient Name</th>
+        <th>Blood Sugar (mg/dL)</th>
+        <th>Notes</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>2025-04-02</td>
+        <td>Ajao Tolu</td>
+        <td>200</td>
+        <td>Need review</td>
+      </tr>
+      <tr>
+        <td>2025-02-12</td>
+        <td>Ajagbe Florence</td>
+        <td>250</td>
+        <td>Need review</td>
+      </tr>
+      <tr>
+        <td>2025-02-25</td>
+        <td>Akinade Ewa</td>
+        <td>100</td>
+        <td>Normal</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Nurses Are Saying</h2>
+    <p>"TeleApp makes patient follow-ups so easy!- Nurse Halimah"</p>
+    <p>"I recommend it for any rural health worker." - Dr. Musa</p>
+  </section>
+
+  <section class="resources">
+    <h2>Helpful Resources</h2>
+    <ul>
+      <li><a href="#">WHO Guidelines on Diabetes</a></li>
+      <li><a href="#">Healthy Living for Diabetes (PDF)</a></li>
+      <li><a href="#">Managing Diabetes in Rural Areas (Article)</a></li>
+    </ul>
+  </section>
+
+  <section class="check-in">
     <h2>Patient Check-In</h2>
     <p>
       Use this section to log patient updates, monitor blood sugar levels, and provide health tips. (Future updates will include forms and remote reporting.)
     </p>
-  </div>
-  <div class="tips">
-    <h2>Diabetes Tips</h2>
-    <ul>
-      <li>Eat a balanced diet with more vegetables and whole grains</li>
-      <li>Stay active even light walking can help</li>
-      <li>Monitor blood sugar regularly</li>
-      <li>Take medications as prescribed</li>
-      <li>Stay hydrated and reduce sugary drinks</li>
-    </ul>
-  </div>
-  <div class="contact">
+  </section>
+
+  <section class="tips">
+    <h2>Today's Health Tips</h2>
+    <p id="daily-tip">Eat healthy and stay active</p>
+  </section>
+
+  <section class="faq">
+    <h2>Frequent Asked Questions</h2>
+    <h4>Q:Can i still eat rice with diabetes</h4>
+    <p>A:Yes, but with portion control and balanced meals.</p>
+    <h4>Q:Should I exercise daily?</h4>
+    <p>A:Yes, even light walking helps</p>
+  </section>
+
+  <section class="appointment">
+    <h2>Schedule a Follow-up Appointment</h2>
+    <form>
+      <span for="date">Select Date</span>
+      <input type="date" id="date" required>
+
+      <span for="time">Select Time</span>
+      <input type="time" id="time" required>
+
+      <button type="submit">Book Appointment</button>
+    </form>
+  </section>
+
+  <section class="contact">
     <h2>Contact a Nurse</h2>
   <form>
     <span for="name">Name:</span>
@@ -46,11 +124,23 @@
 
     <button type="submit">Submit</button>
   </form>
-  </div>
+  </section>
+
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <ul>
+      <li>Nurse Halimah - Community Health Nurse</li>
+      <li>Dr. Musa - Medical adviser</li>
+      <li>Ahmad - Project Lead</li>
+    </ul>
+  </section>
+    <button id="back-btn" type="button" onclick="goBack()">Back To Welcome Screen</button>
+
   <footer>
     <p>&copy; 2025 TeleApp | Created for Rural Health</p>
     <p>Email: support@teleapp.com</p>
 
   </footer>
+<script src="js/script.js"></script>
 </body>
 </html>

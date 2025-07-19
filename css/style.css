@@ -8,11 +8,83 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
   color: #222;
+  height: 100%;
+  width: 100vw;
   min-height: 100vh;
   /* Add a subtle background pattern image for extra depth */
   background-image: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #f7f9fc 60%, #e3e9f7 100%);
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
+  
+}
+
+.welcome-screen {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ;
+  z-index: 999;
+}
+
+.welcome-box {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.welcome-box img {
+  width: 19rem;
+  height: 19rem;
+  margin-bottom: 20px;
+}
+
+.welcome-box h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.welcome-box p {
+  font-size: 1 rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.welcome-box button {
+  padding: 12px 30px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background transform, 0.2s;
+}
+
+.welcome-box button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeout {
+  from { opacity: 1;}
+  to { opacity: 0; visibility: hidden;}
+}
+
+.welcome-screen.fade-out {
+  animation: fadeout 1s forwards;
+  pointer-events: none;
 }
 
 header {
@@ -74,7 +146,7 @@ section {
   padding: 0;
 }
 
-.about, .check-in, .tips {
+.about, .check-in, .tips, .resources, .faq, .appointment, .log, .testimonials, .team {
   padding: 2.2em 2em 1.7em 2em;
   border-radius: 22px;
   box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
@@ -98,7 +170,29 @@ section {
   border-left: 10px solid #d0f044;
 }
 
-.about::before, .check-in::before, .tips::before {
+.resources {
+  border-left: 10px solid green
+}
+
+.log {
+  border-left: 10px solid magenta
+}
+
+.faq {
+  border-left: 10px solid rgb(145, 29, 34)
+}
+
+.appointment{
+  border-left: 10px solid rgb(153, 153, 33)
+}
+
+.testimonials {
+  border-left: 10px solid rgb(107, 19, 19)
+}
+.team {
+  border-left: 10px solid navy
+}
+.about::before, .check-in::before, .tips, .resources::before, .log::before, .faq::before, .testimonials::before, .team::before {
   content: "";
   position: absolute;
   top: -30px; right: -30px;
@@ -110,9 +204,83 @@ section {
 .check-in::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828817.png'); }
 .tips::before { background-image: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png'); }
 
-.about:hover, .check-in:hover, .tips:hover {
+.about:hover, .check-in:hover, .tips:hover, .faq:hover, .log:hover, .appointment:hover, .resources:hover, .team:hover, .testimonials:hover {
   transform: translateY(-6px) scale(1.015);
   box-shadow: 0 12px 40px rgba(44, 62, 80, 0.18);
+}
+
+.log table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  overflow: hidden;
+  background-color: #fff;
+}
+.log th, .log td {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+.log th {
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.log tr {
+  background-color: #eef6ff;
+}
+
+.appointment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #f7f9fc;
+  padding: 1.5em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.appointment input, .appointment button {
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.appointment input:focus {
+  border: 1.5px solid #007BFF;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+}
+
+.appointment button {
+  background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+  letter-spacing: 1px;
+}
+
+.appointment button:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007BFF 100%);
+  box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .contact {
@@ -234,6 +402,25 @@ footer {
     width: 64px;
     height: 64px;
   }
+  #back-btn {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
+  }
+
+  #back-btn :hover {
+    background-color: #007bff;
+    transform: translateY(-2px);
+}
   footer {
     font-size: 0.9em;
     margin-top: 18px;
